@@ -437,8 +437,6 @@ Configure image, replica count, ingress, and secrets in [helm/signalrank/values.
 ## Author
 
 Zachary Ginsburg  
-NYU Stern — Business Analytics / FinTech  
-Data Analytics and Machine Learning, Citi
 
 ---
 
