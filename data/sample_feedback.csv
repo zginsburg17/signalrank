@@ -1,0 +1,16 @@
+customer_id,product_id,channel,message,event_date
+123,88,email,"Charged twice for my order",2026-04-01
+124,88,chat,"Support took too long to respond",2026-04-02
+125,90,email,"Onboarding was confusing and took too long",2026-04-02
+126,88,email,"The pricing is too high compared to competitors",2026-04-03
+127,91,phone,"App crashed on login",2026-04-03
+128,88,email,"Billed for a cancelled subscription",2026-04-03
+129,90,chat,"Could not reach support team for three days",2026-04-04
+130,91,email,"Onboarding documentation is completely outdated",2026-04-04
+131,88,email,"Payment failed three times in a row",2026-04-04
+132,90,chat,"Product worked exactly as expected",2026-04-05
+133,88,phone,"Charged for a plan I never signed up for",2026-04-05
+134,91,email,"Setup process was unclear and frustrating",2026-04-05
+135,88,chat,"Support agent was helpful and resolved my issue quickly",2026-04-06
+136,90,email,"Error on checkout page every time I try to pay",2026-04-06
+137,91,phone,"Love the product so far",2026-04-06

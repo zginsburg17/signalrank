@@ -1,0 +1,34 @@
+replicaCount: 2
+
+image:
+  repository: your-dockerhub-user/signalrank
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8000
+
+ingress:
+  enabled: false
+  className: ""
+  host: signalrank.local
+  path: /
+
+app:
+  env:
+    APP_NAME: SignalRank
+    APP_ENV: prod
+    APP_HOST: 0.0.0.0
+    APP_PORT: "8000"
+    LOG_LEVEL: INFO
+    API_PREFIX: /api/v1
+    POSTGRES_URL: postgresql+psycopg2://postgres:postgres@postgres:5432/signalrank
+    MONGO_URL: mongodb://mongo:27017
+    MONGO_DB_NAME: signalrank
+    ENRICHMENT_API_URL: https://example.com/analyze
+    REQUEST_TIMEOUT_SECONDS: "20"
+
+secretEnv:
+  API_KEY: change-me
+  ENRICHMENT_API_KEY: replace-me

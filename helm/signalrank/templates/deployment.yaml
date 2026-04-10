@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: signalrank
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: signalrank
+  template:
+    metadata:
+      labels:
+        app: signalrank
+    spec:
+      containers:
+        - name: signalrank
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 8000
+          env:
+            - name: APP_NAME
+              value: {{ .Values.app.env.APP_NAME | quote }}
+            - name: APP_ENV
+              value: {{ .Values.app.env.APP_ENV | quote }}
+            - name: APP_HOST
+              value: {{ .Values.app.env.APP_HOST | quote }}
+            - name: APP_PORT
+              value: {{ .Values.app.env.APP_PORT | quote }}
+            - name: LOG_LEVEL
+              value: {{ .Values.app.env.LOG_LEVEL | quote }}
+            - name: API_PREFIX
+              value: {{ .Values.app.env.API_PREFIX | quote }}
+            - name: POSTGRES_URL
+              value: {{ .Values.app.env.POSTGRES_URL | quote }}
+            - name: MONGO_URL
+              value: {{ .Values.app.env.MONGO_URL | quote }}
+            - name: MONGO_DB_NAME
+              value: {{ .Values.app.env.MONGO_DB_NAME | quote }}
+            - name: ENRICHMENT_API_URL
+              value: {{ .Values.app.env.ENRICHMENT_API_URL | quote }}
+            - name: REQUEST_TIMEOUT_SECONDS
+              value: {{ .Values.app.env.REQUEST_TIMEOUT_SECONDS | quote }}
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: signalrank-secret
+                  key: API_KEY
+            - name: ENRICHMENT_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: signalrank-secret
+                  key: ENRICHMENT_API_KEY
